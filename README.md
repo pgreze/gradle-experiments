@@ -51,3 +51,8 @@ echo "include ':japp', ':jlib'" > settings.gradle
 
 Consider using [gw](https://github.com/dougborg/gdub)
 as a nice shortcut for using wrapper from anywhere with ease.
+
+## [Writing gradle tasks](https://guides.gradle.org/writing-gradle-tasks/)
+
+See changes in base/build.gradle and our new base task group when listing tasks :)
+

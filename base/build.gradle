@@ -7,10 +7,30 @@ description = 'A trivial Gradle build'
 version = '1.0'
 
 task copy(type: Copy) {
+    group = 'base'
+    description = 'Copy files from src folder to dest'
     from 'src'
     into 'dest'
 }
 
 task zip(type: Zip) {
+    description = 'Zip files in src folder'
+    group = 'base'
     from 'src'
+}
+
+task hello(type: Greeter) {
+    group = 'base'
+    user = "you"
+    message = "I override user property :)"
+}
+
+class Greeter extends DefaultTask {
+    String user = System.getProperty("user.name")
+    String message
+
+    @TaskAction
+    void sayGreeting() {
+        println "Hello $user, $message"
+    }
 }
