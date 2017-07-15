@@ -1,0 +1,28 @@
+task saySmth {
+    ext.message = "Hello world"
+    doLast {
+        println "Message: $message"
+    }
+}
+
+task sayHello(dependsOn: saySmth) {
+    doLast {
+        println "I say hello"
+    }
+}
+sayHello.doLast {
+    println "But I forgot why (stupid $sayHello.name)"
+}
+// Alternative syntax
+//sayHello.dependsOn saySmth, anotherTask
+
+/* Deprecated syntax:
+ task sayHello(dependsOn: saySmth) << {
+    println "I say hello"
+}*/
+
+gradle.taskGraph.whenReady { taskGraph ->
+    if (taskGraph.hasTask(sayHello)) {
+        println "You choose wisely"
+    }
+}

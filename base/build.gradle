@@ -4,6 +4,8 @@ plugins {
 
 apply plugin: 'fr.pgreze.context'
 
+apply from: 'other.gradle'
+
 context {
     extra = ' from base project'
 }
