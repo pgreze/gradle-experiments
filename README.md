@@ -58,3 +58,7 @@ See changes in base/build.gradle and our new base task group when listing tasks 
 
 ## [Writing gradle plugins](https://guides.gradle.org/writing-gradle-plugins/)
 
+Good practice is to configure plugin properties in folder:
+buildSrc/src/main/resources/META-INF/gradle-plugins
+in order to use the plugin id.
+

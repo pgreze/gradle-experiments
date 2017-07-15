@@ -2,7 +2,7 @@ plugins {
     id 'base'
 }
 
-apply plugin: fr.pgreze.context.ContextPlugin
+apply plugin: 'fr.pgreze.context'
 
 context {
     extra = ' from base project'
