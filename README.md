@@ -21,3 +21,18 @@ Display project info:
 ```
 ./gradlew properties
 ```
+
+Use our first custom task:
+```
+# Display all tasks
+./gradlew tasks --all
+
+# Execute task
+./gradlew copy
+```
+
+After copy, let's zip our project's src folder:
+```
+./gradlew zip
+unzip -ql build/distributions/hello-1.0.zip
+```
