@@ -1,0 +1,4 @@
+rootProject.name = 'gradle-experiments'
+
+include ':base'
+include ':japp', ':jlib'

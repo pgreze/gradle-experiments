@@ -1,16 +1,11 @@
-plugins {
-    id 'base'
+// Applied to hello and all sub projects
+allprojects {
+    version = '1.0'
 }
 
-// Project properties
-description = 'A trivial Gradle build'
-version = '1.0'
-
-task copy(type: Copy) {
-    from 'src'
-    into 'dest'
-}
-
-task zip(type: Zip) {
-    from 'src'
+// Only sub projects configuration
+subprojects {
+    repositories {
+        jcenter()
+    }
 }
