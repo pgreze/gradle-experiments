@@ -1,0 +1,15 @@
+/* Following lines are defined by default:
+apply plugin: 'groovy'
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+}
+*/
+
+repositories {
+    jcenter()
+}
+dependencies {
+    testCompile 'junit:junit:4.12'
+}

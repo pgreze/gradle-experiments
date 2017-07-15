@@ -56,3 +56,5 @@ as a nice shortcut for using wrapper from anywhere with ease.
 
 See changes in base/build.gradle and our new base task group when listing tasks :)
 
+## [Writing gradle plugins](https://guides.gradle.org/writing-gradle-plugins/)
+

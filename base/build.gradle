@@ -2,6 +2,12 @@ plugins {
     id 'base'
 }
 
+apply plugin: fr.pgreze.context.ContextPlugin
+
+context {
+    extra = ' from base project'
+}
+
 // Project properties
 description = 'A trivial Gradle build'
 version = '1.0'
