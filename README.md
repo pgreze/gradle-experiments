@@ -84,3 +84,38 @@ Use the gradlePlugin{} block allows also:
 - Generate the plugin descriptor (META-INF/my-plugin.properties).
 - Configure the Maven publishing plugins to publish a Plugin Marker Artifact for each plugin.
 - Easily use [TestKit](https://docs.gradle.org/current/userguide/test_kit.html#sub:test-kit-automatic-classpath-injection)
+
+About plugins DSL, put at the beginning of settings.gradle:
+```groovy
+// See https://goo.gl/AmmZuy
+pluginManagement {
+    repositories {
+        maven {
+            url "file://${System.getProperty("user.home")}/.m2/repository"
+        }
+        gradlePluginPortal()
+    }
+}
+```
+
+Allow us to use:
+```groovy
+plugins {
+    id 'fr.pgreze.hello' version '1.0'
+}
+```
+
+Instead of:
+```groovy
+buildscript {
+    dependencies {
+        classpath 'fr.pgreze.hello:fr.pgreze.hello.gradle.plugin:0.1'
+    }
+}
+apply plugin: 'fr.pgreze.hello'
+```
+
+But I'm too lazy to split each plugins from :jplugin in dedicated projects.
+
+See [this gradle example](https://github.com/gradle/gradle/blob/master/subprojects/docs/src/samples/compositeBuilds/basic/my-utils/build.gradle)
+for an example of easy split.
