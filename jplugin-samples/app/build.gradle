@@ -1,0 +1,3 @@
+apply plugin: 'fr.pgreze.gradle.app'
+
+description = 'Usage example of our lib plugin'

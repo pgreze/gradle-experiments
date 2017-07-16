@@ -72,3 +72,15 @@ in order to use the plugin id.
 For a system property, see -Dproperty=value accessible via System.getProperty.
 See [this page](https://docs.gradle.org/4.0.1/userguide/build_environment.html#sec:gradle_properties_and_system_properties)
 about project/system properties and other ways to set them.
+
+## [Java Gradle Plugin Development Plugin](https://docs.gradle.org/current/userguide/javaGradle_plugin.html)
+
+Enable some validations:
+- There is a plugin descriptor defined for the plugin.
+- The plugin descriptor contains a valid implementation-class property.
+- Each property getter or the corresponding field must be annotated with a property annotation like @InputFile and @OutputDirectory. Properties that don't participate in up-to-date checks should be annotated with @Internal.
+
+Use the gradlePlugin{} block allows also:
+- Generate the plugin descriptor (META-INF/my-plugin.properties).
+- Configure the Maven publishing plugins to publish a Plugin Marker Artifact for each plugin.
+- Easily use [TestKit](https://docs.gradle.org/current/userguide/test_kit.html#sub:test-kit-automatic-classpath-injection)

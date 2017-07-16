@@ -1,0 +1,51 @@
+plugins {
+    id 'groovy'
+    // See https://docs.gradle.org/current/userguide/javaGradle_plugin.html
+    id 'java-gradle-plugin'
+    id 'maven'
+}
+
+group = 'fr.pgreze.gradle'
+version = '0.1'
+
+gradlePlugin {
+    plugins {
+        bonjourPlugin {
+            id = 'fr.pgreze.gradle.bonjour'
+            implementationClass = 'fr.pgreze.gradle.BonjourPlugin'
+        }
+        appPlugin {
+            id = 'fr.pgreze.gradle.app'
+            implementationClass = 'fr.pgreze.gradle.ApplicationPlugin'
+        }
+        libPlugin {
+            id = 'fr.pgreze.gradle.lib'
+            implementationClass = 'fr.pgreze.gradle.LibraryPlugin'
+        }
+    }
+}
+
+// Inspired by https://tengio.com/blog/reduce-duplication-across-projects/
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            // See .m2/repository/
+            repository(url: mavenLocal().url)
+        }
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile localGroovy()
+
+    // See https://docs.gradle.org/current/userguide/test_kit.html#sub:test-kit-automatic-classpath-injection
+    // testCompile gradleTestKit() // Done by java-gradle-plugin plugin
+    testCompile 'junit:junit:4.12'
+    testCompile('org.spockframework:spock-core:1.0-groovy-2.4') {
+        exclude module: 'groovy-all'
+    }
+}

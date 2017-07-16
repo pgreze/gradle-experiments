@@ -1,0 +1,10 @@
+subprojects {
+    buildscript {
+        repositories {
+            mavenLocal()
+        }
+        dependencies {
+            classpath 'fr.pgreze.gradle:jplugin:0.1'
+        }
+    }
+}

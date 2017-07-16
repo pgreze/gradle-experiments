@@ -2,3 +2,5 @@ rootProject.name = 'gradle-experiments'
 
 include ':base'
 include ':japp', ':jlib'
+include ':jplugin'
+include ':jplugin-samples:app', ':jplugin-samples:lib'
