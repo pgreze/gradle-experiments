@@ -62,3 +62,13 @@ Good practice is to configure plugin properties in folder:
 buildSrc/src/main/resources/META-INF/gradle-plugins
 in order to use the plugin id.
 
+## [Build environment](https://docs.gradle.org/4.0.1/userguide/build_environment.html)
+
+2 ways to declare a project property:
+- via command line (like "gradle hello -Pverbose.level=info -PnoLogs")
+- via gradle.properties (verbose.level=info) in project directory
+- via gradle.properties in gradle user home (usually ~/.gradle)
+
+For a system property, see -Dproperty=value accessible via System.getProperty.
+See [this page](https://docs.gradle.org/4.0.1/userguide/build_environment.html#sec:gradle_properties_and_system_properties)
+about project/system properties and other ways to set them.

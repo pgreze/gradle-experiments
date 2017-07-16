@@ -4,6 +4,8 @@ task saySmth {
         println "Message: $message"
     }
 }
+saySmth.onlyIf { !project.hasProperty("verbose") ||
+        Boolean.parseBoolean(project.findProperty("verbose").toString()) }
 
 task sayHello(dependsOn: saySmth) {
     doLast {
