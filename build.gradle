@@ -1,9 +1,7 @@
-// Applied to hello and all sub projects
 allprojects {
     version = '1.0'
 }
 
-// Only sub projects configuration
 subprojects {
     repositories {
         jcenter()
